@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Arrow Functions</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Arrow Functions</h1>
+<p>Open the console</p>
+<script type="text/babel">
+
+    // bind를 사용했던 것을 arrow funcion을 통해 해결할 수 있다.
+    // arrow funcion은 자기만의 this를 새로 만들지 않고, 바깥 this를 그대로 사용한다
+
+    const tahoe = {
+      resorts: ["Kirkwood","Squaw","Alpine","Heavenly","Northstar"],
+      print: function(delay=1000) {
+
+        setTimeout(
+          () => console.log(this.resorts.join(",")),
+          delay
+        )
+
+      }
+    }
+
+    tahoe.print()
+
+</script>
+</body>
+</html>
