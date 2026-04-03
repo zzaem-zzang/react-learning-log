@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Spread Operator</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Spread Operator</h1>
+<p>Open the console</p>
+<script type="text/babel">
+
+    // reverse()는 원본 배열을 직접 바꾼 다음, 바뀐 배열의 첫 번째 값을 구조 분해 할당으로 꺼낸 코드이다.
+
+    var peaks = ["Tallac", "Ralston", "Rose"]
+    var [last] = peaks.reverse()
+
+    console.log(last)
+    console.log(peaks.join(', '))
+
+</script>
+</body>
+</html>

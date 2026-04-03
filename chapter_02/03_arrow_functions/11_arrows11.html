@@ -11,7 +11,7 @@
 <p>Open the console</p>
 <script type="text/babel">
 
-    // Arrow Functions know when to use them.
+    // 화살표 함수는 this를 멋대로 바꾸지 않고, 바깥의 this를 그대로 쓴다
 
     const tahoe = {
       resorts: ["Kirkwood","Squaw","Alpine","Heavenly","Northstar"],
@@ -24,7 +24,7 @@
       }
     }
 
-    tahoe.print(); 
+    tahoe.print(); // false
 </script>
 </body>
 </html>
