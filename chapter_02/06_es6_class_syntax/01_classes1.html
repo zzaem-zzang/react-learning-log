@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Classes</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Classes</h1>
+<p>Open the console</p>
+<script type="text/babel">
+
+    // 생성자 함수로 객체 생성
+    function Vacation(destination, length) {
+    // 전달받은 값을 객체의 속성으로 저장
+    this.destination = destination
+    this.length = length
+    }
+
+    // prototype에 공통 메서드 추가
+    Vacation.prototype.print = function() {
+    // 객체의 목적지와 기간 출력
+    console.log(this.destination + " will take " + this.length + " days")
+    }
+
+    // 생성자 함수로 인스턴스 생성
+    var maui = new Vacation("Maui", 7)
+
+    // prototype 메서드 호출
+    maui.print()
+
+</script>
+</body>
+</html>

@@ -11,11 +11,15 @@
 <p>Open the console</p>
 <script type="text/babel">
 
+    // fetch로 API 요청
     fetch("https://api.randomuser.me/?nat=US&results=10")
-      .then(response => response.json())
-      .then(members => console.log(members))
-      .catch(err => console.error(err))
-
+    // 응답 객체를 JSON으로 변환
+    .then(response => response.json())
+    // 결과 데이터 출력
+    .then(members => console.log(members))
+    // 에러 처리
+    .catch(err => console.error(err))
+    
 </script>
 </body>
 </html>

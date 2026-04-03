@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Classes</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Classes</h1>
+<p>Open the console</p>
+<script type="text/babel">
+
+    // class 문법으로 Vacation 클래스 정의
+    class Vacation {
+
+        // 객체 생성 시 실행되는 생성자 메서드
+        constructor(destination, length) {
+        // 전달받은 값을 객체 속성에 저장
+        this.destination = destination
+        this.length = length
+        }
+
+        // 여행 정보 출력 메서드
+        print() {
+            console.log(`${this.destination} will take ${this.length} days.`)
+        }
+    }
+
+    // Vacation 클래스의 인스턴스 생성
+    const trip = new Vacation("Santiago, Chile", 9)
+
+    // 인스턴스 메서드 호출
+    trip.print()
+
+</script>
+</body>
+</html>
