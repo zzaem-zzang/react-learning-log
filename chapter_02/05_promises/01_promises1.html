@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Promises</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Promises</h1>
+<p>Open the console</p>
+<script type="text/babel">
+    // Promise를 이용해 가짜 회원 데이터를 비동기로 요청하는 함수
+    const getFakeMembers = count => new Promise((resolves, rejects) => {
+      const api = `https://api.randomuser.me/?nat=US&results=${count}`
+      // 서버 요청 객체 생성
+      const request = new XMLHttpRequest()
+      // GET 방식으로 API 요청 준비
+      request.open('GET', api)
+      // 요청 성공 시 데이터 반환, 실패 시 에러 반환
+      request.onload = () =>
+           (request.status === 200) ?
+            resolves(JSON.parse(request.response).results) :
+            rejects(Error(request.statusText))
+      request.onerror = (err) => rejects(err)
+      request.send()
+    })
+
+    // Promise 결과 처리: 성공하면 members 출력, 실패하면 에러 출력
+    getFakeMembers(5).then( 
+      members => console.log(members),
+      err => console.error(
+          new Error("cannot load members from randomuser.me"))
+    )
+
+</script>
+</body>
+</html>
