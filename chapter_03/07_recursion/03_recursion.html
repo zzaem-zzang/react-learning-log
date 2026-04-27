@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Recursion</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <h1>Recursion</h1>
+  <p>Open the Console</p>
+<script type="text/babel">
+
+    // 중첩된 객체 예제
+    const dan = {
+        type: "person",
+        data: {
+          gender: "male",
+          info: {
+            id: 22,
+            fullname: {
+              first: "Dan",
+              last: "Deacon"
+            }
+          }
+        }
+      }
+
+    // fields: "data.info.fullname.first" 같은 문자열 경로
+    // object: 값을 꺼낼 대상 객체
+    const deepPick = (fields, object = {}) => {
+
+       // "."을 기준으로 문자열을 나눈다
+       // first에는 첫 번째 경로가 들어간다
+       // remaining에는 나머지 경로들이 배열로 들어간다
+       const [first, ...remaining] = fields.split(".")
+
+       // remaining이 남아 있으면 아직 더 안쪽으로 들어가야 한다
+       return (remaining.length) ?
+
+           // object[first]로 한 단계 안쪽 객체에 접근한다
+           // remaining.join(".")으로 남은 경로를 다시 문자열로 만든다
+           deepPick(remaining.join("."), object[first]) :
+
+           // 남은 경로가 없으면 현재 object에서 first 값을 꺼낸다
+           object[first]
+    }
+
+    // dan.type 출력
+    console.log(deepPick("type", dan))
+
+    // dan.data.info.fullname.first 출력
+    console.log(deepPick("data.info.fullname.first", dan))
+
+</script>
+</body>
+</html>

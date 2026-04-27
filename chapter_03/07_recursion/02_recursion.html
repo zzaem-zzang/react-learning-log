@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Recursion</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <h1>Recursion</h1>
+  <p>Open the Console</p>
+<script type="text/babel">
+    // countdown 함수는 숫자 value, 실행할 함수 fn, 지연 시간 delay를 받는다
+    const countdown = (value, fn, delay=1000) => {
+        fn(value)
+        // value가 0보다 크면 delay 시간 뒤에 countdown을 다시 실행한다
+        return (value > 0) ?
+            // setTimeout은 지정한 시간 뒤에 함수를 한 번 실행한다
+            setTimeout(() => countdown(value-1, fn), delay) :
+            // value가 0이면 재귀 호출을 멈추고 value를 반환한다
+            value
+    }
+
+    const log = value => console.log(value)
+    countdown(10, log)
+
+</script>
+</body>
+</html>
