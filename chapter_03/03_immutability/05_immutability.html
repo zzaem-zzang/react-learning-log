@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta charset="utf-8" />
+    <title>Immutability</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Immutability</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      let list = [
+        { title: "Rad Red" },
+        { title: "Lawn" },
+        { title: "Party Pink" }
+      ];
+
+      // 원본 배열을 바꾸지 않고, 새 색상이 추가된 새 배열을 반환
+      const addColor = (title, array) =>
+        array.concat({ title });
+
+      // 새 배열 길이는 4, 원본 list 길이는 그대로 3
+      console.log(addColor("Glam Green", list).length);
+      console.log(list.length);
+    </script>
+  </body>
+</html>
