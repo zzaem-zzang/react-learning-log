@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta charset="utf-8" />
+    <title>What It Means to Be Functional</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Functional JavaScript</h1>
+    <p>Open the console</p>
+    // 함수를 인자로 받아서, 그 함수에 문자열을 전달해 실행
+    <script type="text/babel">
+      const insideFn = logger =>
+        logger(
+          "They can be sent to other functions as arguments"
+        );
+
+      // console.log를 실행하는 함수를 insideFn에 인자로 전달
+      insideFn(message => console.log(message));
+    </script>
+  </body>
+</html>

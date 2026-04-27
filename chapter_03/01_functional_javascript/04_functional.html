@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta charset="utf-8" />
+    <title>What It Means to Be Functional</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Functional JavaScript</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      // 배열에 문자열과 함수를 함께 저장
+      const messages = [
+        "They can be inserted into arrays",
+        message => console.log(message),
+        "like variables",
+        message => console.log(message)
+      ];
+
+      // 배열에서 함수 꺼내서 실행하면서, 문자열을 인자로 전달
+      messages[1](messages[0]);
+      messages[3](messages[2]);
+    </script>
+  </body>
+</html>

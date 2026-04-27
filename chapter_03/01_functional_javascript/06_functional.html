@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta charset="utf-8" />
+    <title>What It Means to Be Functional</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Functional JavaScript</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      // logger 함수를 받아서, 대문자 + !!!로 출력하는 새 함수를 반환
+      const createScream = function(logger) {
+        return function(message) {
+          logger(message.toUpperCase() + "!!!");
+        };
+      };
+
+      // console.log를 사용하는 scream 함수 생성
+      const scream = createScream(message =>
+        console.log(message)
+      );
+
+      // scream을 실행하면 문장이 대문자로 바뀌고 !!!가 붙어서 출력됨
+      scream(
+        "functions can be returned from other functions"
+      );
+      scream("createScream returns a function");
+      scream("scream invokes that returned function");
+    </script>
+  </body>
+</html>
