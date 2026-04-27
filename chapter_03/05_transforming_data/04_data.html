@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Transforming Data</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Transforming Data</h1>
+<p>Open the Console</p>
+<script type="text/babel">
+
+    const schools = [
+      "Yorktown",
+      "Washington & Lee",
+      "Wakefield"
+    ]
+
+    // 각 학교 이름에 " High School"을 추가하여 새 배열을 생성한다.
+    const highSchools = schools.map(school => `${school} High School`)
+
+    console.log(highSchools.join("\n"))
+    // map은 원본 배열을 바꾸지 않고 새 배열을 반환한다.
+    console.log(schools.join("\n"))
+
+</script>
+</body>
+</html>

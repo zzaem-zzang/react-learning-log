@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Transforming Data</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Transforming Data</h1>
+<p>Open the Console</p>
+<script type="text/babel">
+
+    let schools = [
+        { name: "Yorktown"},
+        { name: "Stratford" },
+        { name: "Washington & Lee"},
+        { name: "Wakefield"}
+    ]
+
+    // oldName과 같은 name을 가진 객체만 찾아서 name 값을 새 값으로 바꾼다.
+    // map과 spread를 사용해서 원본 schools 배열은 직접 수정하지 않는다.
+    const editName = (oldName, name, arr) =>
+        arr.map(item => {
+            if (item.name === oldName) {
+                return {
+                    ...item,
+                    name
+                }
+            } else {
+                return item
+            }
+        })
+
+    let updatedSchools = editName("Stratford", "HB Woodlawn", schools)
+
+    console.log( updatedSchools[1] )
+    console.log( schools[1] )
+
+</script>
+</body>
+</html>

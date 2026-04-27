@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Transforming Data</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Transforming Data</h1>
+<p>Open the Console</p>
+<script type="text/babel">
+
+    const schools = [
+      "Yorktown",
+      "Washington & Lee",
+      "Wakefield"
+    ]
+
+    // cut에 해당하는 학교 이름을 제외하고 새 배열을 반환한다.
+    
+    const cutSchool = (cut, list) =>
+        list.filter(school => school !== cut)
+
+    console.log(cutSchool("Washington & Lee", schools).join(" * "))
+    // filter는 원본 배열을 바꾸지 않는다.
+    console.log(schools.join("\n"))
+
+</script>
+</body>
+</html>
